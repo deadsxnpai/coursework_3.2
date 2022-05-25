@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class RentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @Column(nullable = false, length = 100)
     private Long lengthOfTrip;
@@ -23,18 +23,21 @@ public class RentEntity {
     @Column(nullable = false, length = 100)
     private String rateOfTrip;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "client")
+    @OneToOne
+    @JoinColumn(name = "client_id")
     private ClientEntity client_id;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "rent")
+    @OneToOne
+    @JoinColumn(name = "scooter_id")
     private ScooterEntity scooter_id;
 
+    public RentEntity(){}
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Long getLengthOfTrip() {
@@ -93,5 +96,5 @@ public class RentEntity {
     public void setScooter_id(ScooterEntity scooter_id) {
         this.scooter_id = scooter_id;
     }
-    public RentEntity(){}
+
 }

@@ -1,0 +1,27 @@
+post:
+{
+    "firstName":"Daniil",
+    "secondName":"Klyuchnikov",
+    "login":"deadsxnpai",
+    "password":"admin",
+    "email":"truearclight@gmail.com",
+    "dateOfBirth":"03.08.2001",
+    "dateOfRegistration":"26.05.2022"
+}
+
+{
+    "lengthOfTrip":322,
+    "dateOfTrip":"26.05.2022",
+    "timeOfTrip":"10:06",
+    "timeOnTrip":"20",
+    "rateOfTrip":"15"
+}
+
+{
+    "chargePercent": 50,
+    "lockStatus": true,
+    "torchStatus":true,
+    "geolocation":"52.7505809 41.439901",
+    "photoURL":"https://vk.com",
+    "rent_id":1
+}

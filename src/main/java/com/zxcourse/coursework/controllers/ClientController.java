@@ -18,7 +18,7 @@ public class ClientController {
     public ResponseEntity createClient(@RequestBody ClientEntity clientEntity) {
         try {
             clientService.createClient(clientEntity);
-            return ResponseEntity.ok().body("User added");
+            return ResponseEntity.ok().body("Client added");
         } catch (UserAlreadyExist e) {
             return ResponseEntity.badRequest().body("User exception\n" + e);
         } catch (Exception e) {

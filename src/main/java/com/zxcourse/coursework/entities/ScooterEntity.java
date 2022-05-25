@@ -23,10 +23,16 @@ public class ScooterEntity {
     @Column(nullable = false, length = 100)
     private String photoURL;
 
-    @OneToOne
-    @JoinColumn(name = "rent_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "scooter_id")
     private RentEntity rent;
 
+    public RentEntity getRent() {
+        return rent;
+    }
+
+    public void setRent(RentEntity rent) {
+        this.rent = rent;
+    }
     public long getId() {
         return Id;
     }
@@ -75,12 +81,5 @@ public class ScooterEntity {
         this.photoURL = photoURL;
     }
 
-    public RentEntity getRent() {
-        return rent;
-    }
-
-    public void setRent(RentEntity rent) {
-        this.rent = rent;
-    }
     public ScooterEntity(){}
 }

@@ -3,7 +3,7 @@ package com.zxcourse.coursework.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "client")
+@Table(name = "clients")
 public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +30,16 @@ public class ClientEntity {
     @Column(nullable = false, length = 100)
     private String dateOfRegistration;
 
-    @OneToOne
-    @JoinColumn(name = "rent_id")
-    private RentEntity client;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "client_id")
+    private RentEntity rent;
 
+    public RentEntity getRent() {
+        return rent;
+    }
+
+    public void setRent(RentEntity rent) {
+        this.rent = rent;
+    }
     public long getId() {
         return Id;
     }

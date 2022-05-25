@@ -8,13 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/rent")
 public class RentController {
     @Autowired
     private RentService rentService;
     @PostMapping
-    public ResponseEntity createRent(@RequestBody RentEntity rentEntity) {
+    public ResponseEntity createRent(@RequestBody RentEntity rentEntity,@RequestParam long clientId, @RequestParam long scooterId) {
         try {
-            rentService.createRent(rentEntity);
+            rentService.createRent(rentEntity, clientId, scooterId);
             return ResponseEntity.ok().body("Rent added");
         } catch (RentAlreadyExist e) {
             return ResponseEntity.badRequest().body("Rent already exist exception\n" + e);
